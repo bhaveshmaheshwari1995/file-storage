@@ -10,6 +10,15 @@ Steps to run the library.
 2. initialize the client with the mode => local or s3
 // var fileStorageClientLocal = new fileStorage("local");
 
+if mode is s3 pass the config object
+// var fileStorageClientLocal = new fileStorage("s3", config); 
+
+var config = {
+	accessKeyId: "accessKeyId",
+	secretAccessKey: "secretAccessKey",
+	bucket: "bucketName"
+}
+
 There are multiple functionalities in this library
 save file
 open file
@@ -80,15 +89,3 @@ fileStorageClientLocal.getDetails(fileName, data, function (err) {
 		console.log("file saved successfully");
 	}
 })
-
-
-Note For S3 mode set the config
-
-var options = {
-	accessKeyId: "accessKeyId",
-	secretAccessKey: "secretAccessKey",
-	bucket: "bucket"
-}
-
-fileStorageClientS3.setConfigAndUpdate(options);
-

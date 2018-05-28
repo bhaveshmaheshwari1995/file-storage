@@ -1,18 +1,16 @@
 var fileStorage = require('./file-storage');
 
-var fileStorageClientLocal = new fileStorage("local");
-var fileStorageClientS3 = new fileStorage("s3");
-
-var fileName = "bhavesh.txt";
-var data = "hello";
-
 var options = {
 	accessKeyId: "accessKeyId",
 	secretAccessKey: "secretAccessKey",
-	bucket: "bucket"
+	bucket: "bucketName"
 }
 
-fileStorageClientS3.setConfigAndUpdate(options);
+var fileStorageClientS3 = new fileStorage("s3", options);
+
+var fileName = "bhavesh.txt";
+var data = "Hi Bhavesh Here";
+
 
 fileStorageClientS3.save(fileName, data, function (err) {
 	if(err) {
